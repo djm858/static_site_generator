@@ -1,7 +1,6 @@
-from textnode import TextType, TextNode
+from files import copy_files
 
 def main():
-    textnode = TextNode("dummy text", TextType.LINK, "https://www.boot.dev")
-    print(textnode.__repr__())
+    copy_files('./static', './public')
 
 main()
