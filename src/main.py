@@ -1,8 +1,14 @@
+import sys
 from files import copy_files
 from html import generate_pages_recursive
 
-def main():
-    copy_files('./static', './public')
-    generate_pages_recursive('content', 'template.html', 'public')
+def main(argv):
+    if len(argv) > 1:
+        basepath = argv[1]
+    else:
+        basepath = '/'
+    copy_files('./static', './docs')
+    generate_pages_recursive('content', 'template.html', 'docs', basepath)
 
-main()
+if __name__ == "__main__":
+    main(sys.argv)
